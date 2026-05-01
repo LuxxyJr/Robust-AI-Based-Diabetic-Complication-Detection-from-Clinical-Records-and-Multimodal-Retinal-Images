@@ -136,17 +136,13 @@ Reliability diagrams showing probability calibration across different feature se
 |---|---|
 | ![Calibration Demographics](Track%201%20Pipeline/outputs/research%20cv/calibration_demographics_history_lifestyle.png) | ![Calibration History](Track%201%20Pipeline/outputs/research%20cv/calibration_clinical_history_only.png) |
 
-##### Decision Curves (Net Benefit Analysis)
+*Reliability diagrams show how well predicted probabilities match actual frequencies across different feature sets. Perfect calibration would lie on the diagonal.*
 
-Threshold analysis for clinical deployment across feature sets:
+##### Threshold Optimization
 
-| Strict | Lab Only |
-|---|---|
-| ![Decision Curve Strict](Track%201%20Pipeline/outputs/research%20cv/decision_curve_strict.png) | ![Decision Curve Lab Only](Track%201%20Pipeline/outputs/research%20cv/decision_curve_lab_only.png) |
-
-| Demographics + History + Lifestyle | Clinical History Only |
-|---|---|
-| ![Decision Curve Demographics](Track%201%20Pipeline/outputs/research%20cv/decision_curve_demographics_history_lifestyle.png) | ![Decision Curve History](Track%201%20Pipeline/outputs/research%20cv/decision_curve_clinical_history_only.png) |
+Detailed threshold calibration results available in:
+- `outputs/decision_thresholds.json` — Per-target calibrated decision thresholds
+- `outputs/research cv/cv_summary.csv` — Per-fold threshold and metric summary
 
 ---
 
