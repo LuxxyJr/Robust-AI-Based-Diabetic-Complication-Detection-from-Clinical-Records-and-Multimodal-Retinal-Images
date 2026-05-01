@@ -106,7 +106,7 @@ Two independent yet complementary pipelines enable multimodal diabetic complicat
 
 #### Feature Importance (SHAP)
 
-![SHAP Summary (Global)](Track%201%20Pipeline/outputs/shap_summary.png)
+![SHAP Summary Global](Track%201%20Pipeline/outputs/shap_summary.png)
 
 Top predictive clinical factors for DN:
 1. **Kidney function markers:** GFR, SCRE, BUN
@@ -114,7 +114,7 @@ Top predictive clinical factors for DN:
 3. **Metabolic control:** HbA1c, fasting glucose
 4. **Comorbidities:** Hypertension history, diabetes duration
 
-![SHAP Summary (DN-Specific)](Track%201%20Pipeline/outputs/shap_summary_DN.png)
+![SHAP Summary DN](Track%201%20Pipeline/outputs/shap_summary_DN.png)
 
 #### Model Performance Visualizations
 
@@ -130,11 +130,11 @@ Reliability diagrams showing probability calibration across different feature se
 
 | Strict Feature Set | Lab Only |
 |---|---|
-| ![Calibration - Strict](Track%201%20Pipeline/outputs/research%20cv/calibration_strict.png) | ![Calibration - Lab Only](Track%201%20Pipeline/outputs/research%20cv/calibration_lab_only.png) |
+| ![Calibration Strict](Track%201%20Pipeline/outputs/research%20cv/calibration_strict.png) | ![Calibration Lab Only](Track%201%20Pipeline/outputs/research%20cv/calibration_lab_only.png) |
 
 | Demographics + History + Lifestyle | Clinical History Only |
 |---|---|
-| ![Calibration - Demographics](Track%201%20Pipeline/outputs/research%20cv/calibration_demographics_history_lifestyle.png) | ![Calibration - History](Track%201%20Pipeline/outputs/research%20cv/calibration_clinical_history_only.png) |
+| ![Calibration Demographics](Track%201%20Pipeline/outputs/research%20cv/calibration_demographics_history_lifestyle.png) | ![Calibration History](Track%201%20Pipeline/outputs/research%20cv/calibration_clinical_history_only.png) |
 
 ##### Decision Curves (Net Benefit Analysis)
 
@@ -142,11 +142,11 @@ Threshold analysis for clinical deployment across feature sets:
 
 | Strict | Lab Only |
 |---|---|
-| ![Decision Curve - Strict](Track%201%20Pipeline/outputs/research%20cv/decision_curve_strict.png) | ![Decision Curve - Lab Only](Track%201%20Pipeline/outputs/research%20cv/decision_curve_lab_only.png) |
+| ![Decision Curve Strict](Track%201%20Pipeline/outputs/research%20cv/decision_curve_strict.png) | ![Decision Curve Lab Only](Track%201%20Pipeline/outputs/research%20cv/decision_curve_lab_only.png) |
 
 | Demographics + History + Lifestyle | Clinical History Only |
 |---|---|
-| ![Decision Curve - Demographics](Track%201%20Pipeline/outputs/research%20cv/decision_curve_demographics_history_lifestyle.png) | ![Decision Curve - History](Track%201%20Pipeline/outputs/research%20cv/decision_curve_clinical_history_only.png) |
+| ![Decision Curve Demographics](Track%201%20Pipeline/outputs/research%20cv/decision_curve_demographics_history_lifestyle.png) | ![Decision Curve History](Track%201%20Pipeline/outputs/research%20cv/decision_curve_clinical_history_only.png) |
 
 ---
 
