@@ -1,0 +1,15 @@
+lesion,positive_count,modality
+microaneurysm,4398,CFP
+hard_exudate,2648,CFP
+intraretinal_hemorrhage,2580,CFP
+vb_irma,236,CFP
+neovascularization,556,CFP
+vitreous_hemorrhage,358,CFP
+retinal_detachment,93,CFP
+microaneurysm,6938,UWF
+hard_exudate,3846,UWF
+intraretinal_hemorrhage,3849,UWF
+vb_irma,1010,UWF
+neovascularization,1188,UWF
+vitreous_hemorrhage,1219,UWF
+retinal_detachment,238,UWF

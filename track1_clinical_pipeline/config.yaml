@@ -1,0 +1,170 @@
+# ============================================================================
+#  Track 1: AI-Based Diabetic Complication Detection — Configuration
+# ============================================================================
+# All paths, column lists, and hyperparameters are centralised here so that
+# every downstream script reads from a single source of truth.
+
+# ------------------------------------------------------------------
+# Paths
+# ------------------------------------------------------------------
+paths:
+  raw_csv: "../Datasets/Paper 1/Dataset for diabetes research.csv"
+  processed_dir: "processed"
+  output_dir: "outputs"
+
+# ------------------------------------------------------------------
+# Data settings
+# ------------------------------------------------------------------
+data:
+  csv_encoding: "latin-1"
+  random_seed: 42
+  test_size: 0.20
+  min_target_positives: 50
+  target_missing_policy: "partial"  # partial or complete_case
+
+  # Study scope
+  active_target_set: "primary"      # primary, exploratory, all, custom
+  primary_target_columns:
+    - "DN"
+  exploratory_target_columns:
+    - "DRyd"
+    - "Blind"
+    - "CerebralIn"
+  custom_target_columns: []
+
+  # Columns to drop before modelling (IDs, dates, near-empty, etc.)
+  drop_columns:
+    - "Data"         # admission date — not a feature
+    - "NO"           # patient ID
+    - "VAR00001"     # row marker
+    - "CDSMS"        # 100 % blank
+    - "DMnew3class"  # 94.8 % blank
+    - "ThalussemiaHPLC"  # 97.5 % blank
+    - "HypertenHis"      # 96.6 % blank
+    - "DyslipideHis"     # 99.3 % blank
+    - "Drink50g"         # 93.2 % blank
+    - "EscDrinkM"        # 97.8 % blank
+    - "EscDrinkT"        # 93.7 % blank
+    - "EscDrinkR"        # 94.0 % blank
+    - "EscDrinkD"        # 98.2 % blank
+    - "EscDrinkO"        # 99.8 % blank
+    - "Cancer"           # 93.0 % blank
+    - "GLU"              # 92.1 % blank
+    - "PLCR"             # 78.1 % blank
+    - "HPLC"             # 72.9 % blank
+    - "EyeDia"           # 71.7 % blank
+    - "DrinkYears"       # 64.5 % blank
+    - "SmokingRange"     # 64.6 % blank
+    - "EscDrink"         # 57.3 % blank
+    - "SmokingAge"       # 54.8 % blank
+    - "DrinkingAge"      # 51.0 % blank
+
+  # Full available targets in the raw dataset (used when active_target_set=all)
+  target_columns:
+    - "DRyd"
+    - "DN"
+    - "PAD"
+    - "MI"
+    - "HF"
+    - "CerebralIn"
+    - "Amputation"
+    - "Blind"
+
+  # Original DR column (only has 0/blank — unusable as a target, kept for reference)
+  dr_original_column: "DR"
+
+  # Values that represent "unknown / not answered" → treated as missing
+  unknown_sentinel_values:
+    - "9"
+    - " "
+    - ""
+
+  # Imputation
+  knn_imputer_k: 5
+
+  # Threshold for dropping columns with excessive missingness (after sentinel replacement)
+  max_missing_fraction: 0.50
+
+  # Always exclude target-derived or direct diagnosis/proxy features.
+  always_drop_feature_columns:
+    - "DR"
+    - "cataract"
+    - "GAnum"
+    - "filter"
+    - "GAstudy"
+
+  # Target-specific strict leakage control.
+  target_specific_feature_drops:
+    DN:
+      - "BUN"
+      - "SCRE"
+      - "highCr"
+      - "UCRE"
+      - "UmALB"
+      - "HighUmALB"
+      - "UMAUCR"
+      - "ACR3degree"
+      - "HighACR"
+      - "GFR"
+      - "GFR5lev"
+      - "GFR6levG5"
+      - "EUGFRabACR012"
+      - "EUGFR90UACR01"
+      - "EUGFR60abACR012"
+      - "UACRGFR"
+    DRyd:
+      - "EyeDia"
+      - "Blind"
+
+# ------------------------------------------------------------------
+# XGBoost hyperparameters
+# ------------------------------------------------------------------
+xgboost:
+  n_estimators: 500
+  max_depth: 6
+  learning_rate: 0.05
+  subsample: 0.8
+  colsample_bytree: 0.8
+  min_child_weight: 3
+  gamma: 0.1
+  reg_alpha: 0.1
+  reg_lambda: 1.0
+  early_stopping_rounds: 30
+  eval_metric: "logloss"
+  use_scale_pos_weight: true
+
+# ------------------------------------------------------------------
+# Neural-network (TabNet / MLP) hyperparameters
+# ------------------------------------------------------------------
+neural_network:
+  model_type: "mlp"          # "mlp" or "tabnet"
+  epochs: 150
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  hidden_dims: [256, 128, 64]
+  dropout: 0.3
+  scheduler_patience: 10
+  scheduler_factor: 0.5
+  early_stopping_patience: 20
+  loss_type: "focal_bce"     # "bce" or "focal_bce"
+  focal_gamma: 2.0
+  use_weighted_sampler: true
+
+  # TabNet-specific (used only when model_type == "tabnet")
+  tabnet:
+    n_d: 32
+    n_a: 32
+    n_steps: 5
+    gamma_tabnet: 1.5
+    n_independent: 2
+    n_shared: 2
+    mask_type: "sparsemax"
+
+# ------------------------------------------------------------------
+# Evaluation
+# ------------------------------------------------------------------
+evaluation:
+  shap_max_display: 20
+  shap_background_samples: 200
+  tune_thresholds: true

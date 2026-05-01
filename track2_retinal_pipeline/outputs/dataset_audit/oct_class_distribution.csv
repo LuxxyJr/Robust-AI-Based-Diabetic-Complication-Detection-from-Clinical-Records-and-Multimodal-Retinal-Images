@@ -1,0 +1,7 @@
+modality,split,grade,count
+OCT,test,0,214
+OCT,test,1,36
+OCT,test,2,312
+OCT,train,0,792
+OCT,train,1,184
+OCT,train,2,1400

@@ -1,0 +1,11 @@
+modality,split,grade,count
+CFP,test,0,1323
+CFP,test,1,259
+CFP,test,2,409
+CFP,test,3,100
+CFP,test,4,134
+CFP,train,0,5256
+CFP,train,1,1043
+CFP,train,2,1550
+CFP,train,3,503
+CFP,train,4,541

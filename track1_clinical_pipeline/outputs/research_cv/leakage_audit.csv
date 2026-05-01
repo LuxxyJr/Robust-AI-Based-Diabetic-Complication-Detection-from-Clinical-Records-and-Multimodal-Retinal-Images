@@ -1,0 +1,30 @@
+column,group,reason
+ACR3degree,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+BUN,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+EUGFR60abACR012,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+EUGFR90UACR01,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+EUGFRabACR012,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+GFR,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+GFR5lev,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+GFR6levG5,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+HighACR,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+HighUmALB,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+SCRE,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+UACRGFR,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+UCRE,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+UMAUCR,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+UmALB,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+highCr,DN_specific_proxy,Kidney-function or albuminuria proxy that can directly encode nephropathy status.
+GAnum,global_direct_proxy,"Configured direct diagnosis, eye-study, or dataset-processing proxy."
+GAstudy,global_direct_proxy,"Configured direct diagnosis, eye-study, or dataset-processing proxy."
+cataract,global_direct_proxy,"Configured direct diagnosis, eye-study, or dataset-processing proxy."
+filter,global_direct_proxy,"Configured direct diagnosis, eye-study, or dataset-processing proxy."
+Amputation,target_or_complication_label,Outcome or complication label; not available as a baseline predictor.
+Blind,target_or_complication_label,Outcome or complication label; not available as a baseline predictor.
+CerebralIn,target_or_complication_label,Outcome or complication label; not available as a baseline predictor.
+DN,target_or_complication_label,Outcome or complication label; not available as a baseline predictor.
+DR,target_or_complication_label,Outcome or complication label; not available as a baseline predictor.
+DRyd,target_or_complication_label,Outcome or complication label; not available as a baseline predictor.
+HF,target_or_complication_label,Outcome or complication label; not available as a baseline predictor.
+MI,target_or_complication_label,Outcome or complication label; not available as a baseline predictor.
+PAD,target_or_complication_label,Outcome or complication label; not available as a baseline predictor.

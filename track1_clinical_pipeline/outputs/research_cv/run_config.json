@@ -1,0 +1,20 @@
+{
+  "feature_modes": [
+    "strict",
+    "lab_only",
+    "demographics_history_lifestyle",
+    "clinical_history_only",
+    "without_lab_only"
+  ],
+  "models": [
+    "loop_gaussian_nb"
+  ],
+  "seed": 42,
+  "n_bootstrap": 100,
+  "n_splits": 5,
+  "n_repeats": 3,
+  "imputer": "simple",
+  "skip_plots": false,
+  "max_estimators": 200,
+  "calibrate": false
+}

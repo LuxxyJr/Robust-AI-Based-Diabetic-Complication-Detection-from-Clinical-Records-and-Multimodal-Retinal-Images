@@ -1,0 +1,9 @@
+{
+  "mode": "per-target tuned on validation",
+  "xgb": {
+    "DN": 0.4
+  },
+  "nn": {
+    "DN": 0.55
+  }
+}
